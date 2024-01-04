@@ -1,0 +1,44 @@
+{
+  "scripts": {
+    "test": "jest --env node",
+    "start": "nodemon"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/register": "^7.23.7",
+    "@types/jest": "^29.5.11",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ]
+  },
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  },
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "jsx",
+    "ts",
+    "tsx",
+    "node"
+  ],
+  "globals": {
+    "ts-jest": {
+      "tsconfig": "tsconfig.json",
+      "useESM": false
+    }
+  }
+}
