@@ -1,4 +1,4 @@
-export default class Item {
+export default abstract class Item {
   category: string;
   description: string;
   price: number;
@@ -7,15 +7,7 @@ export default class Item {
     this.description = description;
     this.price = price;
   }
-
-  calculateTaxes() {
-    let taxes = 0;
-    if (this.category === "Bread") {
-      taxes += this.price * 0.2;
-    }
-    if (this.category === "Cake") {
-      taxes += this.price * 0.1;
-    }
-    return taxes;
-  }
 }
+// calculartaxas n é papel do item1
+// O do solid => item está fechado para modificação, e as subclasses que vão ser obrigadas a implementarem o calculateTaxes
+// eu n preciso ficar modificando minha classe por mudanças externas [ todas as vezes que surgir um novo item, ou as taxas mudarem, ou qualquer coisa nos itens mudarem...]
