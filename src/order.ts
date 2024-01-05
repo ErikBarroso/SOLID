@@ -1,3 +1,4 @@
+import TaxItem from "./TaxItem";
 import Item from "./items";
 
 export default class Order {
@@ -8,6 +9,7 @@ export default class Order {
     this.items = [];
   }
 
+  // order n sabe qual item está interagindo (polimorfimos)
   addItem(item: Item) {
     this.items.push(item);
   }
@@ -19,16 +21,18 @@ export default class Order {
     }
     return total;
   }
-
-  getTaxes() {
+  // calculartaxas n é papel da order
+  getTaxes(date: Date) {
     let taxes = 0;
     for (const item of this.items) {
-      taxes += item.calculateTaxes();
+      if (item instanceof TaxItem) {
+        taxes += item.calculateTaxes(date);
+      }
     }
     return taxes;
   }
 
-  getTotal() {
-    return this.getSubtotal() + this.getTaxes();
+  getTotal(date: Date) {
+    return this.getSubtotal() + this.getTaxes(date);
   }
 }
